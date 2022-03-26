@@ -3,12 +3,12 @@ import { Category } from "../entities/Category";
 
 type CategoryRequest = {
   name: string;
-  decription: string;
+  description: string;
 };
 
 export class CreateCategoryService {
 
-  async execute({ name, decription }: CategoryRequest): Promise<Category | Error> {
+  async execute({ name, description }: CategoryRequest): Promise<Category | Error> {
     const repo = getRepository(Category);
 
     if (await repo.findOne({ name })) {
@@ -17,7 +17,7 @@ export class CreateCategoryService {
 
     const category = repo.create({
       name,
-      decription,
+      description,
     })
 
     await repo.save(category);
