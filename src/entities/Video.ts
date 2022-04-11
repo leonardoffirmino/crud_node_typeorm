@@ -13,7 +13,7 @@ export class Video {
   name: string;
 
   @Column()
-  decription: string;
+  description: string;
 
   @Column()
   duration: number;
